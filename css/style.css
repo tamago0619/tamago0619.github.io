@@ -1,0 +1,14 @@
+body {
+  background-color: #511d1d;
+  color: #ffffff;
+  /*background-size=>調整圖片大小
+    contain 圖片等大小
+    cover無片等比例縮放撲滿*/
+  background-image: url(../img/Rectangle\ 19.png);
+  /*background-size=>調整圖片大小
+  contain 圖片等大小
+  cover無片等比例縮放撲滿*/
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 80%;
+}
