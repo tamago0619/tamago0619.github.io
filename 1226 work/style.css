@@ -1,0 +1,459 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind+Mysuru:wght@300;400;500;600;700&family=Lilita+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+h1 {
+  font-size: 24px;
+  font-family: "Kaisei Tokumin", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h2 {
+  font-family: "Lilita One", serif;
+  font-size: 96px;
+  font-style: normal;
+  color: #191854;
+}
+h3 {
+  font-family: "Kaisei Tokumin", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
+}
+h4 {
+  font-size: 20px;
+  font-family: "Inter", bold;
+}
+p {
+  color: #000;
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 35px; /* 159.091% */
+}
+/* 基本樣式 */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 防止橫向滾動 */
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 通用跑馬燈樣式 */
+.marquee {
+  width: 100vw; /* 佔滿整個視窗寬度 */
+  width: auto;
+  height: 30px; /* 高度固定 */
+  position: fixed; /* 固定在畫面上 */
+  z-index: 9999; /* 確保在最上層 */
+  overflow: hidden; /* 隱藏溢出部分 */
+
+  background-color: #191854; /* 背景顏色（可自定義） */
+}
+
+/* 上方跑馬燈 */
+.marquee-top {
+  top: 0;
+}
+
+/* 下方跑馬燈 */
+.marquee-bottom {
+  bottom: 0;
+}
+
+/* 跑馬燈內容 */
+.marquee-content {
+  display: flex; /* 水平排列圖片 */
+  animation: marqueeAnimation 20s linear infinite; /* 動畫效果 */
+}
+
+/* 圖片樣式 */
+.marquee-content img {
+  width: 100%;
+  height: 30px; /* 高度填滿容器 */
+  object-fit: cover; /* 填滿容器，可能會裁剪圖片 */
+}
+/* 定義動畫 */
+@keyframes marqueeAnimation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+/* 主要內容區域 */
+.content {
+  margin: 70px 0; /* 留出上下跑馬燈的空間 */
+  padding: 20px;
+  text-align: center;
+}
+/* 搜尋容器 */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  gap: 23px;
+}
+
+/* 搜尋框樣式 */
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #000; /* 黑色邊框 */
+  border-radius: 50px; /* 完美圓角 */
+  padding: 5px 15px;
+  width: 200px;
+  overflow: hidden;
+}
+
+/* 搜尋圖標樣式 */
+.search-icon {
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+/* 搜尋欄樣式 */
+.search-box input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  flex: 1; /* 自動填滿剩餘空間 */
+}
+
+/* 輸入框聚焦效果 */
+.search-box input:focus {
+  outline: none;
+}
+
+/* 滑鼠懸停效果 */
+.search-box:hover {
+  border-color: #555;
+  transition: border-color 0.3s ease;
+}
+
+/* Header 基本樣式 */
+header {
+  width: 1000px; /* 固定寬度 */
+
+  margin: 40px auto auto auto;
+  display: flex;
+  justify-content: center; /* 左中右分佈 */
+  color: #000000;
+  padding: 20px 10px;
+}
+
+/* Header 容器 */
+.header-container {
+  display: flex;
+  justify-content: space-between; /* 左中右分佈 */
+  align-items: center; /* 垂直置中 */
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 21px; /* 中間的間距 */
+}
+
+/* 左側標題 */
+.header-title {
+  font-size: 1.2rem;
+  white-space: nowrap; /* 防止換行 */
+}
+
+/* 中間 Logo */
+.header-logo {
+  text-align: center;
+  flex: 1; /* 彈性填滿空間 */
+}
+
+.header-logo h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+/* 右側操作區域 */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-actions input {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.header-actions .menu-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+/* Hero 區塊（背景無限延伸 + 垂直置中） */
+.hero {
+  background-color: #6d629f; /* 紫色背景 */
+  width: 100%;
+  min-height: 100vh; /* 至少填滿整個視窗高度 */
+  display: flex;
+  align-items: center; /* 垂直置中 */
+  justify-content: center; /* 水平置中 */
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+/* 輪播容器 */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1000px; /* 限制最大寬度 */
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 60px; /* 在左右加些內距以給箭頭更多空間 */
+}
+
+/* 輪播項目 */
+.carousel-item {
+  display: none; /* 預設所有圖片隱藏 */
+  position: relative;
+  text-align: center;
+}
+
+.carousel-item.active {
+  display: block; /* 顯示當前活動圖片 */
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+}
+
+/* 左右箭頭置中並推至外側 */
+.carousel-control {
+  position: absolute;
+  top: 50%; /* 垂直置中 */
+  transform: translateY(-50%); /* 微調使箭頭精確置中 */
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+}
+
+.carousel-control.prev {
+  left: -40px; /* 使左箭頭向左推 40px */
+}
+
+.carousel-control.next {
+  right: -40px; /* 使右箭頭向右推 40px */
+}
+
+/* 文字樣式 */
+.carousel-text {
+  position: absolute;
+  color: white;
+  font-size: 1rem;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-text.top {
+  top: 10%;
+  left: 10%;
+}
+
+.carousel-text.bottom {
+  bottom: 10%;
+  left: 10%;
+  right: 10%;
+}
+
+/* 箭頭控制 */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+.carousel-control:hover {
+  color: #ddd;
+}
+/* Main Image 區塊 */
+.main-image {
+  position: relative;
+  text-align: center;
+}
+
+.main-image img {
+  width: 100%;
+  height: auto;
+}
+
+.explore-btn {
+  position: absolute;
+  margin: 0 auto; /* 水平置中 */
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #35356a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.explore-btn:hover {
+  background-color: #555;
+}
+/* 按鈕置中 + 間距 */
+.btn {
+  width: 200px;
+  margin: 30px auto 0; /* 上方30px間距，置中 */
+  background-color: #191854;
+  color: #ffffff;
+  border: none;
+  border-radius: 36px;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+/* 滑鼠懸停效果 */
+.btn:hover {
+  background-color: #ffffff;
+  transform: scale(1.05);
+  color: #191854;
+}
+
+/* 按下按鈕效果 */
+.btn:active {
+  border-radius: 36px;
+  background: rgba(25, 24, 84, 0.47);
+  color: #ffffff; /* 文字顏色 */
+  transform: scale(0.95); /* 按下時稍微縮小 */
+}
+
+/* About 區塊 */
+.about {
+  text-align: center;
+  padding: 40px 20px;
+
+  flex-direction: column;
+}
+
+.about h2 {
+  color: #191854;
+}
+
+.about-content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.about-cards {
+  display: flex;
+  justify-content: space-around; /* 均分排列 */
+  align-items: center; /* 垂直置中 */
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* 如果空間不足，自動換行 */
+}
+
+/* 每個項目 */
+.about-item {
+  flex: 1; /* 均分空間 */
+  max-width: 300px; /* 設定最大寬度，避免項目過寬 */
+  text-align: center;
+}
+
+/* 圖片樣式 */
+.about-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover; /* 確保圖片不變形 */
+}
+
+/* 文字樣式 */
+.about-item p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Overview 區塊 */
+.overview {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.overview-content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.overview-item {
+  flex: 1;
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.overview-item img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Footer 樣式 */
+footer {
+  background-color: #35356a;
+  color: white;
+  text-align: center;
+  padding: 60px;
+  gap: 71px;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.footer-links1 a {
+  color: white;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 32px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
