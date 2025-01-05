@@ -406,26 +406,48 @@ header {
   padding: 40px 20px;
 }
 
+/* 卡片容器，設置左右間距與卡片之間間隔 */
 .overview-content {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between; /* 卡片左右對齊 */
+  gap: 77px; /* 卡片之間的間距 */
+  margin: 0 173px; /* 左右兩側設置 173px 間距 */
   margin-top: 20px;
 }
-
+/* 單一卡片樣式 */
 .overview-item {
-  flex: 1;
-  text-align: center;
+  width: 45%; /* 保持左右排列 */
+  text-align: left; /* 文字靠左對齊 */
   background: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid #000;
+  position: relative;
 }
 
+/* 圖片置中，保持原樣 */
 .overview-item img {
-  width: 100px;
+  display: block; /* 讓圖片獨占一行 */
+  margin: 0 auto 10px auto; /* 水平置中，下方留間距 */
+  width: 150px;
   height: auto;
+}
+
+/* 標題置左 */
+.overview-item h3 {
+  text-align: left; /* 標題靠左對齊 */
+  font-size: 1.2rem;
+  font-weight: bold;
   margin-bottom: 10px;
+}
+
+/* 內文描述置左 */
+.overview-item p {
+  text-align: left; /* 描述靠左對齊 */
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
 }
 
 /* Footer 樣式 */
@@ -434,26 +456,51 @@ footer {
   color: white;
   text-align: center;
   padding: 60px;
-  gap: 71px;
 }
 
+/* LOGO 樣式 */
 .footer-logo {
   font-size: 2rem;
   margin-bottom: 10px;
 }
+
+/* 第一組連結 (Instagram, Twitter, YouTube) */
+.footer-links1 {
+  margin-bottom: 71px; /* 與下方區塊間距 71px */
+}
+
 .footer-links1 a {
   color: white;
   text-decoration: none;
   margin: 0 5px;
 }
 
+/* 第二組連結 (太宰治相關連結) */
+.footer-links {
+  margin-bottom: 40px; /* 與版權文字之間稍微留點距離 */
+}
+
 .footer-links a {
   color: white;
   text-decoration: none;
   font-size: 32px;
+  margin: 0 25px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .footer-links a:hover {
   text-decoration: underline;
+}
+/* 分隔線 */
+.footer-divider {
+  width: 100%; /* 與 footer 同寬 */
+  height: 2px; /* 線條粗細 */
+  background-color: white; /* 線條顏色 */
+  margin: 20px 0; /* 與上、下元素之間的間距 */
+}
+
+/* 版權文字樣式 */
+footer h4 {
+  margin-top: 20px;
+  font-size: 0.9rem;
 }
