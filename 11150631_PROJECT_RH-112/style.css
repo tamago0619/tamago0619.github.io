@@ -1,0 +1,981 @@
+/* 通用樣式 */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow-x: hidden;
+    color: white;
+    font-family: 'IBM Plex Mono', monospace;
+    padding-top: 70px; /* 為固定導航欄留出空間 */
+    line-height: 1.6;
+}
+
+/* 滾動行為平滑 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 圖片響應式調整 */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 標題通用樣式 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    font-style: normal;
+    line-height: normal;
+    color: white;
+}
+
+h1 {
+    font-size: 64px;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 40px;
+    margin-bottom: 2rem;
+}
+
+p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+    font-weight: 400;
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* 容器通用設置，用於居中和限制內容寬度 */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* ------------------------------------- */
+/* 導航欄樣式 (Fixed Navigation Bar) */
+header {
+    background-color: black;
+    padding: 20px 0;
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 垂直居中 */
+    box-sizing: border-box; /* 確保 padding 不會增加總寬度 */
+}
+
+/* 桌面導覽列 */
+#desktop-nav {
+    display: flex; /* 默認顯示 */
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+#desktop-nav > div {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    width: 100%;
+}
+
+#desktop-nav > div > a {
+    font-family: 'IBM Plex Mono', monospace;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+#desktop-nav > div > a:hover {
+    color: #ff0077;
+}
+
+/* 漢堡包菜單圖示 */
+#hamburger-menu {
+    display: none; /* 默認隱藏 */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
+}
+
+#hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* 漢堡包菜單動畫 */
+#hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+#hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+#hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* 手機導覽列 */
+#mobile-nav {
+    display: none; /* 默認隱藏 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95); /* 半透明背景 */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    z-index: 999;
+    padding-top: 70px; /* 避免被頂部 header 遮擋 */
+    box-sizing: border-box;
+    transform: translateX(100%); /* 初始時滑出螢幕 */
+    transition: transform 0.3s ease-in-out;
+}
+
+#mobile-nav.active {
+    transform: translateX(0); /* 滑入螢幕 */
+}
+
+#mobile-nav a {
+    font-family: 'IBM Plex Mono', monospace;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+#mobile-nav a:hover {
+    color: #ff0077;
+}
+
+
+/* Hero Section 大圖區塊 */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 0;
+    padding-bottom: 150px;
+    background-color: black;
+    position: relative;
+}
+
+#hero h1 {
+    font-size: 64px;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+#hero h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+#hero img {
+    max-width: 600px;
+    width: 80%;
+    height: auto;
+    margin: 40px auto;
+}
+
+#main-button {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.button {
+    padding: 15px 30px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.button.pink {
+    background-color: #ff0077;
+    border-color: #ff0077;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+    border-color: white;
+}
+
+.button.pink:hover {
+    background-color: #f07;
+    color: white;
+    border-color: #f07;
+}
+
+
+/* Section 通用樣式 (用於 OVERVIEW, MODULES, DATA LOG, SYSTEM ERROR, END) */
+section {
+    padding: 100px 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/* Overview Section 總覽區塊 */
+#overview {
+    background-color: #ff0077;
+    color: white;
+}
+
+#overview .overview-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 4rem;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#overview .overview-left-column-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    text-align: left;
+    margin-left: 0;
+}
+
+#overview .overview-left-column-text h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+#overview .overview-left-column-text p {
+    color: white;
+    line-height: 1.6;
+    text-align: left;
+}
+
+#overview .overview-right-column-content {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* 圓形文字容器 */
+.circular-text-container {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.circular-text {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: rotateCircle 15s linear infinite;
+}
+
+.circular-text span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0% 100%;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: white;
+    white-space: nowrap;
+}
+
+@keyframes rotateCircle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Modules Section 模組區塊 */
+#modules {
+    background: #000;
+    color: white;
+}
+
+#modules .modules-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#modules .modules-left-column-text {
+    flex: none;
+    max-width: 800px;
+    width: 100%;
+    padding: 0;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#modules .modules-left-column-text h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+#modules .modules-left-column-text p {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+#modules .modules-right-column-cards {
+    flex: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.module-card {
+    background: #ffffff;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 401px;
+    max-height: 482px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    min-width: 280px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.module-card:hover {
+    background: #f07;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.module-card img {
+    width: 100%;
+    height: 303px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.module-card h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: normal;
+    margin-bottom: 0.5rem;
+    color: #ff0077;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+.module-card:hover h4 {
+    color: white;
+}
+
+.module-card p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #000;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+.module-card:hover p {
+    color: white;
+}
+
+
+
+/* Data Log Section 數據日誌區塊 */
+#data-log {
+    background: #000;
+    color: white;
+}
+
+#data-log .data-log-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#data-log .data-log-left-column-text {
+    flex: none;
+    max-width: 800px;
+    width: 100%;
+    padding: 0;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#data-log .data-log-left-column-text h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+#data-log .data-log-left-column-text p {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+/* 表格包裝器樣式 */
+#data-log .data-log-table-wrapper {
+    flex: none;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0;
+    padding: 0;
+    align-self: flex-start;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+table thead th {
+    color: #ff0077;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+table tbody td {
+    color: white;
+}
+
+table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+table td span.red {
+    color: #ff0077;
+}
+
+
+/* System Error Section 系統錯誤區塊 */
+#system-error {
+    background: #000;
+    color: white;
+}
+
+#system-error .system-error-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#system-error .system-error-left-column-text {
+    flex: none;
+    max-width: 800px;
+    width: 100%;
+    padding: 0;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#system-error .system-error-left-column-text h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+#system-error .system-error-left-column-text pre#mainError {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+/* 錯誤圖片和文字彈出容器 */
+#error-popup-area {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    gap: 20px;
+}
+
+#error-popup-area.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#errorImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transform: scale(0.8);
+    opacity: 0;
+    animation: none;
+}
+
+.error-message {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #ff0077;
+    line-height: 1.8;
+    text-align: left;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: none;
+}
+
+/* 定義彈出動畫 */
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 定義文字彈出動畫 */
+@keyframes slideUpFadeIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* End Section 結束區塊 */
+#end {
+    background-color: #ff0077;
+    color: white;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* 新增：END 區塊內容的包裹器樣式 */
+#end .end-content-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#end h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 40px;
+    text-align: left;
+    width: 100%;
+    max-width: 800px;
+}
+
+#end p {
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    width: 100%;
+    max-width: 800px;
+}
+
+
+/* ====== 新增動畫樣式 START ====== */
+
+/* 通用淡入效果 */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+}
+.fade-in.animated {
+    opacity: 1;
+}
+
+/* 從底部滑入效果 */
+.slide-up {
+    opacity: 0;
+    transform: translateY(30px); /* 初始位置在下方 */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.slide-up.animated {
+    opacity: 1;
+    transform: translateY(0); /* 滑到原始位置 */
+}
+
+/* 從左側滑入效果 */
+.slide-left {
+    opacity: 0;
+    transform: translateX(-30px); /* 初始位置在左側 */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.slide-left.animated {
+    opacity: 1;
+    transform: translateX(0); /* 滑到原始位置 */
+}
+
+/* 從右側滑入效果 (目前您的 HTML 沒用到，但以防萬一保留) */
+.slide-right {
+    opacity: 0;
+    transform: translateX(30px); /* 初始位置在右側 */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.slide-right.animated {
+    opacity: 1;
+    transform: translateX(0); /* 滑到原始位置 */
+}
+
+/* 卡片和表格行的延遲動畫 */
+/* 預設隱藏，等待 JS 添加動畫類 */
+.module-card,
+table tbody tr {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* 當被 animated 時，應用動畫效果 */
+.module-card.animated,
+table tbody tr.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ====== 新增動畫樣式 END ====== */
+
+
+/* 響應式設計 */
+
+/* 平板和較小桌面設備 (max-width: 1024px) */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    nav > div {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    body {
+        padding-top: 100px;
+    }
+
+    /* 通用兩欄區塊切換為單欄 */
+    .overview-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    #overview .overview-left-column-text {
+        max-width: 100%;
+        text-align: left;
+    }
+    #overview .overview-left-column-text h2,
+    #overview .overview-left-column-text p {
+        text-align: left;
+    }
+
+    #modules .modules-content-wrapper,
+    #data-log .data-log-content-wrapper,
+    #system-error .system-error-content-wrapper {
+        gap: 30px;
+        align-items: flex-start;
+    }
+
+   .module-card {
+        width: calc(50% - 10px);
+        min-width: 300px;
+        max-width: 401px;
+        max-height: 482px;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    #data-log .data-log-table-wrapper {
+        align-self: flex-start;
+    }
+
+    #error-popup-area {
+        justify-content: flex-start;
+    }
+
+
+     #end .end-content-wrapper {
+        padding: 0 20px;
+    }
+    #end h2, #end h3, #end p {
+        text-align: left;
+    }
+}
+
+/* 手機設備 (max-width: 768px) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    #hero {
+        padding-bottom: 100px;
+    }
+
+    #main-button {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .button {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    /* 隱藏桌面導覽列，顯示漢堡包菜單 */
+    #desktop-nav {
+        display: none;
+    }
+    header {
+        justify-content: flex-start; /* 將 header 內容靠左對齊，漢堡包在右邊 */
+        padding: 20px; /* 調整 padding，給漢堡包留出空間 */
+    }
+    #hamburger-menu {
+        display: flex; /* 顯示漢堡包圖示 */
+    }
+
+    /* 手機導覽列的顯示由 JS 控制，這裡只做初始樣式 */
+    #mobile-nav {
+        display: flex; /* 確保它在 JS 啟用時能顯示 */
+        transform: translateX(100%); /* 初始滑出螢幕 */
+    }
+    #mobile-nav.active {
+        transform: translateX(0); /* 滑入螢幕 */
+    }
+
+    body {
+        padding-top: 70px; /* 調整 padding-top，header 高度不變 */
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+   .module-card {
+        width: 90%;
+        margin: 0 auto;
+        min-width: unset;
+        max-width: 401px;
+        max-height: 482px;
+    }
+
+    table th,
+    table td {
+        padding: 8px 10px;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+    }
+
+    table td {
+        display: block;
+        text-align: right !important;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        position: relative;
+        padding-left: 50%;
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        text-align: left;
+        font-weight: 700;
+        color: #ff0077;
+    }
+
+    #system-error .system-error-left-column-text pre#mainError {
+        font-size: 0.9rem;
+    }
+
+    #error-popup-area {
+        max-width: 90%;
+        justify-content: flex-start;
+    }
+
+    #end .end-content-wrapper {
+        padding: 0 20px;
+    }
+    #end h2, #end h3, #end p {
+        text-align: left;
+    }
+}
+
+/* 更小的設備 (max-width: 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .button {
+        font-size: 0.9rem;
+        padding: 12px 25px;
+    }
+
+    #hero img {
+        width: 90%;
+    }
+}
